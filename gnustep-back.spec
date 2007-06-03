@@ -13,7 +13,10 @@ URL:		http://www.gnustep.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	gnustep-base
 BuildRequires:	gcc-objc
-BuildRequires:	gnustep-make cups-devel
+BuildRequires:	gnustep-make gnustep-base gnustep-gui
+BuildRequires:	cups-devel
+BuildRequires:	X11-devel
+Requires:	gnustep-base gnustep-gui
 
 %description
 It is a library of graphical user interface classes written
