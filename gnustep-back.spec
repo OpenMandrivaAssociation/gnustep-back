@@ -1,10 +1,10 @@
-%define version		0.9.6
 %define name		gnustep-back
-%define prefix 		/usr/GNUstep/System
+%define version		0.12.0
+%define release		%mkrel 1
 
 Name: 		%{name}
 Version: 	%{version}
-Release: 	1mdk
+Release: 	%{release}
 Source: 	%{name}-%{version}.tar.bz2
 License: 	GPL
 Group:		Development/Other
@@ -12,7 +12,8 @@ Summary: 	GNUstep Backend package
 URL:		http://www.gnustep.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	gnustep-base
-BuildRequires:	gnustep-make libgnustep-base-devel cups-devel
+BuildRequires:	gcc-objc
+BuildRequires:	gnustep-make cups-devel
 
 %description
 It is a library of graphical user interface classes written
@@ -25,28 +26,24 @@ such as buttons, text fields, popup lists, browser lists,
 and windows; there are also many associated classes
 for handling events, colors, fonts, pasteboards and images.
 
-
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{prefix}
+CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix}
 make
 
 %install
-make INSTALL_ROOT_DIR=$RPM_BUILD_ROOT GNUSTEP_INSTALLATION_DIR=$RPM_BUILD_ROOT%{prefix} filelist=yes install
-
-gzip -d $RPM_BUILD_ROOT%prefix/Library/Documentation/man/man1/*.gz
-bzip2 $RPM_BUILD_ROOT%prefix/Library/Documentation/man/man1/*
+%makeinstall_std
+bzme $RPM_BUILD_ROOT%prefix/System/Library/Documentation/man/man1/*.gz
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr (-, root, root)
-%doc ANNOUNCE COPYING.LIB
-%doc INSTALL NEWS README 
-%prefix/Library/Bundles/libgnustep-back.bundle
-%prefix/Library/Documentation/man/man1/
-%prefix/Library/Fonts/Helvetica.nfont/
-%prefix/Tools/*
+%doc ANNOUNCE COPYING.LIB INSTALL NEWS README 
+%_prefix/GNUstep/System/Library/Bundles
+%_prefix/GNUstep/System/Library/Documentation/man/man1/*
+%_prefix/GNUstep/System/Library/Fonts
+%_prefix/GNUstep/System/Tools/*
