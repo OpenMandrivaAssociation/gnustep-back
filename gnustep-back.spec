@@ -1,6 +1,6 @@
 %define name		gnustep-back
 %define version		0.12.0
-%define release		%mkrel 1
+%define release		%mkrel 2
 
 Name: 		%{name}
 Version: 	%{version}
