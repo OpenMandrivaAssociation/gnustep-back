@@ -13,7 +13,8 @@ URL:		http://www.gnustep.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	gnustep-gui
 BuildRequires:	gcc-objc
-BuildRequires:	gnustep-make libgnustep-base-devel libgnustep-gui-devel
+BuildRequires:	gnustep-base
+BuildRequires:	libgnustep-base-devel libgnustep-gui-devel
 BuildRequires:	cups-devel
 BuildRequires:	X11-devel
 
