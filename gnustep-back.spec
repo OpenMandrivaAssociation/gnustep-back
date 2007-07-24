@@ -1,6 +1,6 @@
 %define name		gnustep-back
 %define version		0.12.0
-%define release		%mkrel 2
+%define release		%mkrel 3
 
 Name: 		%{name}
 Version: 	%{version}
@@ -11,12 +11,11 @@ Group:		Development/Other
 Summary: 	GNUstep Backend package
 URL:		http://www.gnustep.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
-Requires:	gnustep-base
+Requires:	gnustep-gui
 BuildRequires:	gcc-objc
-BuildRequires:	gnustep-make gnustep-base gnustep-gui
+BuildRequires:	gnustep-make libgnustep-base-devel libgnustep-gui-devel
 BuildRequires:	cups-devel
 BuildRequires:	X11-devel
-Requires:	gnustep-base gnustep-gui
 
 %description
 It is a library of graphical user interface classes written
@@ -33,12 +32,11 @@ for handling events, colors, fonts, pasteboards and images.
 %setup -q
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix}
+./configure
 make
 
 %install
 %makeinstall_std
-bzme $RPM_BUILD_ROOT%prefix/System/Library/Documentation/man/man1/*.gz
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -46,7 +44,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr (-, root, root)
 %doc ANNOUNCE COPYING.LIB INSTALL NEWS README 
-%_prefix/GNUstep/System/Library/Bundles
-%_prefix/GNUstep/System/Library/Documentation/man/man1/*
-%_prefix/GNUstep/System/Library/Fonts
-%_prefix/GNUstep/System/Tools/*
+%_prefix/lib/GNUstep/Bundles/*
+%_mandir/man1/*
+%_prefix/lib/GNUstep/Fonts
+%_bindir/*
