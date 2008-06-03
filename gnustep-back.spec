@@ -1,11 +1,11 @@
 %define name		gnustep-back
-%define version		0.12.0
-%define release		%mkrel 3
+%define version		0.13.2
+%define release		%mkrel 1
 
 Name: 		%{name}
 Version: 	%{version}
 Release: 	%{release}
-Source: 	%{name}-%{version}.tar.bz2
+Source: 	%{name}-%{version}.tar.gz
 License: 	GPL
 Group:		Development/Other
 Summary: 	GNUstep Backend package
