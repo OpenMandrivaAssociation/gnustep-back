@@ -5,7 +5,7 @@
 Name: 		%{name}
 Version: 	%{version}
 Release: 	%{release}
-Source: 	%{name}-%{version}.tar.gz
+Source: 	ftp://ftp.gnustep.org/pub/gnustep/core/%{name}-%{version}.tar.gz
 License: 	GPL
 Group:		Development/Other
 Summary: 	GNUstep Backend package
@@ -33,10 +33,12 @@ for handling events, colors, fonts, pasteboards and images.
 %setup -q
 
 %build
-./configure
+%define __cputoolize /bin/true
+%configure2_5x
 make
 
 %install
+rm -fr %buildroot
 %makeinstall_std
 
 %clean
