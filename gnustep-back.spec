@@ -1,12 +1,12 @@
 %define name		gnustep-back
 %define version		0.14.0
-%define release		%mkrel 1
+%define release		%mkrel 2
 
 Name: 		%{name}
 Version: 	%{version}
 Release: 	%{release}
 Source: 	ftp://ftp.gnustep.org/pub/gnustep/core/%{name}-%{version}.tar.gz
-License: 	GPL
+License: 	LGPLv2+
 Group:		Development/Other
 Summary: 	GNUstep Backend package
 URL:		http://www.gnustep.org/
