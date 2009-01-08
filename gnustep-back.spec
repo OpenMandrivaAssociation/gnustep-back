@@ -6,6 +6,7 @@ Name: 		%{name}
 Version: 	%{version}
 Release: 	%{release}
 Source: 	ftp://ftp.gnustep.org/pub/gnustep/core/%{name}-%{version}.tar.gz
+Patch0:		gnustep-back-0.16.0-fix-str-fmt.patch
 License: 	LGPLv2+
 Group:		Development/Other
 Summary: 	GNUstep Backend package
@@ -31,6 +32,7 @@ for handling events, colors, fonts, pasteboards and images.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %define __cputoolize /bin/true
