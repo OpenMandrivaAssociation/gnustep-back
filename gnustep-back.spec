@@ -1,5 +1,5 @@
 %define name		gnustep-back
-%define version		0.16.0
+%define version		0.18.0
 %define release		%mkrel 1
 
 Name: 		%{name}
@@ -15,9 +15,13 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	gnustep-gui
 BuildRequires:	gcc-objc
 BuildRequires:	gnustep-base
-BuildRequires:	libgnustep-base-devel libgnustep-gui-devel
-BuildRequires:	cups-devel
-BuildRequires:	X11-devel
+BuildRequires:	gnustep-base-devel
+BuildRequires:	gnustep-gui-devel
+BuildRequires:	libx11-devel
+BuildRequires:	GL-devel
+BuildRequires:	libxext-devel
+BuildRequires:	libxmu-devel
+BuildRequires:	freetype2-devel
 
 %description
 It is a library of graphical user interface classes written
