@@ -1,17 +1,14 @@
 %define name		gnustep-back
-%define version		0.18.0
-%define release		%mkrel 1
 
 Name: 		%{name}
-Version: 	%{version}
-Release: 	%{release}
-Source: 	ftp://ftp.gnustep.org/pub/gnustep/core/%{name}-%{version}.tar.gz
+Version: 	0.22.0
+Release: 	1
+Source: 	ftp://ftp.gnustep.org:21/pub/gnustep/core/%{name}-%{version}.tar.gz
 Patch0:		gnustep-back-0.16.0-fix-str-fmt.patch
 License: 	LGPLv2+
 Group:		Development/Other
 Summary: 	GNUstep Backend package
 URL:		http://www.gnustep.org/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	gnustep-gui
 BuildRequires:	gcc-objc
 BuildRequires:	gnustep-base
@@ -44,11 +41,7 @@ for handling events, colors, fonts, pasteboards and images.
 make
 
 %install
-rm -fr %buildroot
 %makeinstall_std
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr (-, root, root)
@@ -109,3 +102,4 @@ rm -rf $RPM_BUILD_ROOT
 
 * Tue May 10 2005 Lenny Cartier <lenny@mandriva.com> 0.9.6-1mdk
 - new
+
