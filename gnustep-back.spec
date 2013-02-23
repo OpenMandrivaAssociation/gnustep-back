@@ -39,6 +39,7 @@ for handling events, colors, fonts, pasteboards and images.
 
 %build
 %define __cputoolize /bin/true
+export LIBS=-lfontconfig
 %configure2_5x
 make
 
