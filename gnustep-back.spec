@@ -18,7 +18,7 @@ BuildRequires:	libx11-devel
 BuildRequires:	GL-devel
 BuildRequires:	libxext-devel
 BuildRequires:	libxmu-devel
-BuildRequires:	freetype2-devel
+BuildRequires:	freetype-devel
 
 %description
 It is a library of graphical user interface classes written
