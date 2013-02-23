@@ -19,7 +19,6 @@ BuildRequires:	GL-devel
 BuildRequires:	libxext-devel
 BuildRequires:	libxmu-devel
 BuildRequires:	freetype-devel
-BuildRequires:	cairo-devel
 BuildRequires:	pkgconfig(libart-2.0)
 
 %description
@@ -40,11 +39,11 @@ for handling events, colors, fonts, pasteboards and images.
 %build
 %define __cputoolize /bin/true
 export LIBS=-lfontconfig
-%configure2_5x
-make
+%configure2_5x --with-installation-domain=SYSTEM
+make 
 
 %install
-%makeinstall_std
+%makeinstall_std GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
 
 %files
 %defattr (-, root, root)
