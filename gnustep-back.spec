@@ -19,7 +19,7 @@ BuildRequires:	GL-devel
 BuildRequires:	libxext-devel
 BuildRequires:	libxmu-devel
 BuildRequires:	freetype-devel
-BuildRequires:	pkgconfig(libart-2.0)
+BuildRequires:	cairo-devel
 
 %description
 It is a library of graphical user interface classes written
@@ -47,9 +47,9 @@ make
 %files
 %defattr (-, root, root)
 %doc ANNOUNCE COPYING.LIB INSTALL NEWS README 
-%_prefix/lib/GNUstep/Bundles/*
+%_libdir/GNUstep/Bundles/*
 %_mandir/man1/*
-%_prefix/lib/GNUstep/Fonts
+%_libdir/GNUstep/Fonts
 %_bindir/*
 
 
