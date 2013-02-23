@@ -19,7 +19,6 @@ BuildRequires:	GL-devel
 BuildRequires:	libxext-devel
 BuildRequires:	libxmu-devel
 BuildRequires:	freetype-devel
-BuildRequires:	cairo-devel
 
 %description
 It is a library of graphical user interface classes written
