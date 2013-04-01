@@ -1,7 +1,7 @@
 %define name		gnustep-back
 
 Name: 		%{name}
-Version: 	0.22.0
+Version: 	0.23.0
 Release: 	1
 Source: 	ftp://ftp.gnustep.org:21/pub/gnustep/core/%{name}-%{version}.tar.gz
 Patch0:		gnustep-back-0.16.0-fix-str-fmt.patch
