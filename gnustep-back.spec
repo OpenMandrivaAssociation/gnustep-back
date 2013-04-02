@@ -38,7 +38,7 @@ for handling events, colors, fonts, pasteboards and images.
 %build
 %define __cputoolize /bin/true
 %configure2_5x
-make 
+%make 
 
 %install
 %makeinstall_std GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
