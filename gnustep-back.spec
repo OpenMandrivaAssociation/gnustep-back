@@ -36,7 +36,7 @@ for handling events, colors, fonts, pasteboards and images.
 %patch0 -p0
 
 %build
-%define __cputoolize /bin/true
+#define __cputoolize /bin/true
 %configure2_5x
 %make 
 
