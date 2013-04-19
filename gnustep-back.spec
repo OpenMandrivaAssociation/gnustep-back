@@ -2,7 +2,7 @@
 
 Name: 		%{name}
 Version: 	0.23.0
-Release: 	1
+Release: 	2
 Source: 	ftp://ftp.gnustep.org:21/pub/gnustep/core/%{name}-%{version}.tar.gz
 Patch0:		gnustep-back-0.16.0-fix-str-fmt.patch
 License: 	LGPLv2+
@@ -37,6 +37,10 @@ for handling events, colors, fonts, pasteboards and images.
 
 %build
 #define __cputoolize /bin/true
+# FIXME: gold linker dies with internal error in convert_types, at ../../gold/gold.h:192 on i586
+%ifarch %{ix86}
+export CC="%{__cc} -fuse-ld=bfd"
+%endif
 %configure2_5x
 %make 
 
