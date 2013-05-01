@@ -1,24 +1,22 @@
-%define name		gnustep-back
-
-Name: 		%{name}
-Version: 	0.23.0
-Release: 	2
-Source: 	ftp://ftp.gnustep.org:21/pub/gnustep/core/%{name}-%{version}.tar.gz
-Patch0:		gnustep-back-0.16.0-fix-str-fmt.patch
-License: 	LGPLv2+
+Summary:	GNUstep Backend package
+Name:		gnustep-back
+Version:	0.23.0
+Release:	2
+License:	LGPLv2+
 Group:		Development/Other
-Summary: 	GNUstep Backend package
-URL:		http://www.gnustep.org/
-Requires:	gnustep-gui
+Url:		http://www.gnustep.org/
+Source0:	ftp://ftp.gnustep.org/pub/gnustep/core/%{name}-%{version}.tar.gz
+Patch0:		gnustep-back-0.16.0-fix-str-fmt.patch
+
 BuildRequires:	gcc-objc
-BuildRequires:	gnustep-base
+BuildRequires:	freetype-devel
 BuildRequires:	gnustep-base-devel
 BuildRequires:	gnustep-gui-devel
-BuildRequires:	libx11-devel
-BuildRequires:	GL-devel
-BuildRequires:	libxext-devel
-BuildRequires:	libxmu-devel
-BuildRequires:	freetype-devel
+BuildRequires:	pkgconfig(gl)
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xext)
+BuildRequires:	pkgconfig(xmu)
+Requires:	gnustep-gui
 
 %description
 It is a library of graphical user interface classes written
@@ -37,7 +35,7 @@ for handling events, colors, fonts, pasteboards and images.
 
 %build
 #define __cputoolize /bin/true
-# FIXME: gold linker dies with internal error in convert_types, at ../../gold/gold.h:192 on i586
+# FIXME:	gold linker dies with internal error in convert_types, at ../../gold/gold.h:192 on i586
 %ifarch %{ix86}
 export CC="%{__cc} -fuse-ld=bfd"
 %endif
@@ -48,62 +46,9 @@ export CC="%{__cc} -fuse-ld=bfd"
 %makeinstall_std GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
 
 %files
-%defattr (-, root, root)
 %doc ANNOUNCE COPYING.LIB INSTALL NEWS README 
-%_libdir/GNUstep/Bundles/*
-%_mandir/man1/*
-%_libdir/GNUstep/Fonts
-%_bindir/*
-
-
-%changelog
-* Tue Aug 03 2010 Funda Wang <fwang@mandriva.org> 0.18.0-1mdv2011.0
-+ Revision: 565362
-- New version 0.18.0
-
-* Thu Jan 08 2009 Funda Wang <fwang@mandriva.org> 0.16.0-1mdv2009.1
-+ Revision: 327016
-- fix str fmt
-- New version 0.16.0
-
-* Wed Aug 20 2008 Funda Wang <fwang@mandriva.org> 0.14.0-3mdv2009.0
-+ Revision: 274290
-- rebuild for new gnustep-base
-- spec cleanup
-
-* Fri Jun 20 2008 Franck Villaume <fvill@mandriva.com> 0.14.0-1mdv2009.0
-+ Revision: 227537
-- new stable version 0.14.0
-
-* Tue Jun 03 2008 Franck Villaume <fvill@mandriva.com> 0.13.2-1mdv2009.0
-+ Revision: 214514
-- new version 0.13.2
-
-* Fri Dec 21 2007 Olivier Blin <oblin@mandriva.com> 0.12.0-3mdv2008.1
-+ Revision: 136456
-- restore BuildRoot
-
-  + Thierry Vignaud <tv@mandriva.org>
-    - kill re-definition of %%buildroot on Pixel's request
-
-* Wed Jul 25 2007 Austin Acton <austin@mandriva.org> 0.12.0-3mdv2008.0
-+ Revision: 55131
-- buildrequires gnustep-base
-- update for new layout
-- drop redundant requires
-
-* Mon Jun 04 2007 Austin Acton <austin@mandriva.org> 0.12.0-2mdv2008.0
-+ Revision: 34990
-- increment release
-- fix buildrequires
-- redo it all
-
-  + Adam Williamson <awilliamson@mandriva.org>
-    - Import gnustep-back
-
-
-
-
-* Tue May 10 2005 Lenny Cartier <lenny@mandriva.com> 0.9.6-1mdk
-- new
+%{_bindir}/*
+%{_libdir}/GNUstep/Bundles/*
+%{_libdir}/GNUstep/Fonts
+%{_mandir}/man1/*
 
