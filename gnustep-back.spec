@@ -9,6 +9,7 @@ Source0:	ftp://ftp.gnustep.org/pub/gnustep/core/%{name}-%{version}.tar.gz
 Patch0:		gnustep-back-0.16.0-fix-str-fmt.patch
 
 BuildRequires:	gcc-objc
+BuildRequires:	gnustep-make
 BuildRequires:	freetype-devel
 BuildRequires:	gnustep-base-devel
 BuildRequires:	gnustep-gui-devel
