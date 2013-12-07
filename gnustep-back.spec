@@ -1,7 +1,7 @@
 Summary:	GNUstep Backend package
 Name:		gnustep-back
 Version:	0.23.0
-Release:	5
+Release:	6
 License:	LGPLv2+
 Group:		Development/Other
 Url:		http://www.gnustep.org/
