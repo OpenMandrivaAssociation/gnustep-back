@@ -1,7 +1,7 @@
 Summary:	GNUstep Backend package
 Name:		gnustep-back
-Version:	0.23.0
-Release:	8
+Version:	0.24.0
+Release:	1
 License:	LGPLv2+
 Group:		Development/Other
 Url:		http://www.gnustep.org/
@@ -35,12 +35,14 @@ for handling events, colors, fonts, pasteboards and images.
 %patch0 -p0
 
 %build
+export CC=`gnustep-config --variable=CC`
+export CXX=`gnustep-config --variable=CXX`
 #define __cputoolize /bin/true
 # FIXME:	gold linker dies with internal error in convert_types, at ../../gold/gold.h:192 on i586
 %ifarch %{ix86}
 export CC="%{__cc} -fuse-ld=bfd"
 %endif
-%configure2_5x
+%configure2_5x LDFLAGS='-lfontconfig'
 %make 
 
 %install
