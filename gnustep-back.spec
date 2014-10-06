@@ -11,6 +11,7 @@ Patch0:		gnustep-back-0.16.0-fix-str-fmt.patch
 BuildRequires:	gcc-objc
 BuildRequires:	gnustep-make
 BuildRequires:	freetype-devel
+BuildRequires:	fontconfig-devel
 BuildRequires:	gnustep-base-devel
 BuildRequires:	gnustep-gui-devel
 BuildRequires:	pkgconfig(gl)
@@ -38,11 +39,7 @@ for handling events, colors, fonts, pasteboards and images.
 export CC=`gnustep-config --variable=CC`
 export CXX=`gnustep-config --variable=CXX`
 #define __cputoolize /bin/true
-# FIXME:	gold linker dies with internal error in convert_types, at ../../gold/gold.h:192 on i586
-%ifarch %{ix86}
-export CC="%{__cc} -fuse-ld=bfd"
-%endif
-%configure2_5x LDFLAGS='-lfontconfig'
+%configure LDFLAGS='-lfontconfig'
 %make 
 
 %install
