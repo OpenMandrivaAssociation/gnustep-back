@@ -1,12 +1,11 @@
 Summary:	GNUstep Backend package
 Name:		gnustep-back
-Version:	0.24.0
-Release:	2
+Version:	0.24.1
+Release:	1
 License:	LGPLv2+
 Group:		Development/Other
 Url:		http://www.gnustep.org/
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/core/%{name}-%{version}.tar.gz
-Patch0:		gnustep-back-0.16.0-fix-str-fmt.patch
 
 BuildRequires:	gcc-objc
 BuildRequires:	gnustep-make
@@ -33,13 +32,12 @@ for handling events, colors, fonts, pasteboards and images.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 export CC=`gnustep-config --variable=CC`
 export CXX=`gnustep-config --variable=CXX`
 #define __cputoolize /bin/true
-%configure LDFLAGS='-lfontconfig'
+%configure LDFLAGS='-lfontconfig -z muldefs'
 %make 
 
 %install
