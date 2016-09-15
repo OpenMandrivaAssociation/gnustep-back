@@ -1,5 +1,2 @@
-removed_sources:
-  gnustep-back-0.23.0.tar.gz: cb4584f15fd6e5ba4571157dff08990cc90c195a
-  gnustep-back-0.24.0.tar.gz: 1b46c1bb19696712c27bb99a8cf39204e1c3f895
 sources:
-  gnustep-back-0.24.1.tar.gz: f40ae1687b9ce6103034858e69ecf7962662a874
+  gnustep-back-0.25.0.tar.gz: a22f445237aafe96b89a82b833b74ad26830230c
