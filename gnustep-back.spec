@@ -4,7 +4,7 @@ Version:	0.27.0
 Release:	2
 License:	LGPLv2+
 Group:		Development/Other
-Url:		http://www.gnustep.org/
+Url:		https://www.gnustep.org/
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/core/%{name}-%{version}.tar.gz
 
 BuildRequires:	gcc-objc
