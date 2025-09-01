@@ -1,22 +1,24 @@
 Summary:	GNUstep Backend package
 Name:		gnustep-back
-Version:	0.27.0
-Release:	2
+Version:	0.32.0
+Release:	1
 License:	LGPLv2+
 Group:		Development/Other
 Url:		https://www.gnustep.org/
-Source0:	ftp://ftp.gnustep.org/pub/gnustep/core/%{name}-%{version}.tar.gz
+#source uses underscores in versioning
+Source0:	https://github.com/gnustep/libs-back/archive/refs/tags/back-0_32_0.tar.gz
 
-BuildRequires:	gcc-objc
 BuildRequires:	gnustep-make
-BuildRequires:	freetype-devel
-BuildRequires:	fontconfig-devel
+BuildRequires:	lib64freetype6-devel
+BuildRequires:	lib64fontconfig-devel
+BuildRequires:  lib64objc-devel
 BuildRequires:	gnustep-base-devel
 BuildRequires:	gnustep-gui-devel
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xmu)
+
 Requires:	gnustep-gui
 
 %description
@@ -31,14 +33,12 @@ and windows; there are also many associated classes
 for handling events, colors, fonts, pasteboards and images.
 
 %prep
-%setup -q
+%autosetup -p1 -n libs-back-back-0_32_0
 
 %build
 export CC=`gnustep-config --variable=CC`
 export CXX=`gnustep-config --variable=CXX`
-#define __cputoolize /bin/true
-%configure LDFLAGS='-lfontconfig -z muldefs'
-%make 
+%make_build
 
 %install
 %makeinstall_std GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
@@ -49,4 +49,3 @@ export CXX=`gnustep-config --variable=CXX`
 %{_libdir}/GNUstep/Bundles/*
 %{_libdir}/GNUstep/Fonts
 %{_mandir}/man1/*
-
