@@ -9,9 +9,9 @@ Url:		https://www.gnustep.org/
 Source0:	https://github.com/gnustep/libs-back/archive/refs/tags/back-0_32_0.tar.gz
 
 BuildRequires:	gnustep-make
-BuildRequires:	lib64freetype6-devel
-BuildRequires:	lib64fontconfig-devel
-BuildRequires:  lib64objc-devel
+BuildRequires:	pkgconfig(freetype2)
+BuildRequires:	pkgconfig(fontconfig)
+BuildRequires:  pkgconfig(libobjc)
 BuildRequires:	gnustep-base-devel
 BuildRequires:	gnustep-gui-devel
 BuildRequires:	pkgconfig(gl)
